@@ -5,7 +5,7 @@ import {
 type NumberParam = bigint | number | string;
 
 export default class BigNumber {
-  private number = 0n;
+  private number = BigInt(0);
 
   private decimal = 0;
 
@@ -114,9 +114,9 @@ export default class BigNumber {
     let thatNum = thatNumber.getNumber();
 
     if (diff > 0) {
-      thatNum = thatNumber.getNumber() * (10n ** BigInt(diff));
+      thatNum = thatNumber.getNumber() * (BigInt(10) ** BigInt(diff));
     } else if (diff < 0) {
-      thisNum = this.getNumber() * (10n ** BigInt(diff * -1));
+      thisNum = this.getNumber() * (BigInt(10) ** BigInt(diff * -1));
     }
 
     return [thisNum, thatNum];
